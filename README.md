@@ -98,3 +98,39 @@ When all validations pass, the agent produces a structured ad payload in the fol
     }
   }
 }
+```
+## Submission & API Failure Handling
+Ad submission is attempted via a mocked TikTok Ads API.
+
+The agent can simulate failures such as:
+- Invalid OAuth token
+- Invalid music ID
+- Geo-restriction
+
+Instead of returning raw errors, the agent:
+- Interprets the failure
+- Explains the cause in plain language
+- Suggests corrective actions
+- Prevents blind retries when not appropriate
+
+This mirrors real-world external API behavior.
+
+## Prompt Design
+
+A prompts.py file is included to document:
+- System-level constraints
+- Business rule enforcement
+- Structured output expectations
+
+In this implementation, the agent logic is deterministic and handled in Python for predictability.
+The prompts file demonstrates how the system would be integrated with an LLM if required.
+
+## Tech Stack
+
+Language: Python
+Interface: CLI
+LLM: Optional (not required for this implementation)
+APIs: Mocked TikTok Ads API
+Backend: Lightweight, no UI
+
+No model fine-tuning, vector databases, or frontend components are used, as per assignment instructions.
